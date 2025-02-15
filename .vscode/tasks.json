@@ -27,9 +27,7 @@
 			"group": {
 				"kind": "build",
 			},
-			"linux": {
-				"command": "${userHome}/zephyrproject/.venv/bin/west"
-			},
+			"command": "${userHome}/zephyrproject/.venv/bin/west",
 			"args": [
 				"build",
 				"-p",
@@ -44,16 +42,39 @@
 		{
 			"label": "West Flash",
 			"type": "shell",
-			"linux": {
-				"command": "${userHome}/zephyrproject/.venv/bin/west"
-			},
+			"command": "${userHome}/zephyrproject/.venv/bin/west",
 			"args": [
 				"flash"
 			],
 			"problemMatcher": [
 				"$gcc"
 			]
+		},
+		{
+			"label": "Clean Build",
+			"type": "shell",
+			"command": "rm",
+			"args": [
+				"-Rf",
+				"${workspaceFolder}/build"
+			],
+			"problemMatcher": [
+				"$gcc"
+			]
+		},
+		{
+			"label": "Start Venv",
+			"type": "shell",
+			"command": "source",
+			"args": [
+				"${userHome}/zephyrproject/.venv/bin/activate",
+			],
+			"problemMatcher": [
+				"$gcc"
+			]
 		}
+
+
 	],
 	"inputs": [
 		{
